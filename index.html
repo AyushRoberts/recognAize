@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script defer src="face-api.min.js"></script>
+  <script defer src="ageandgender.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase-auth.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="js/vendor/jquery-1.12.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/indexstyle.css">
+
+  <title>Age and Gender Detection</title>
+</head>
+<body>
+  <nav class="navbar navbar-inverse nav">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <span class="bh glyphicon glyphicon-time" style="margin-top:auto" onclick="openNav()"></span>
+          <span class="ch"><a style="color: white;" href="index.html">PROJECT</a></span>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <!--<li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>-->
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+            <li><a class="logout" onclick="mainApp.logout();"><span class="glyphicon glyphicon-log-in" style="color:blue"></span></br>Logout</a></li>
+          </ul>
+        </div>
+        <center><span id="NAME"><a style="color: white; font-size: 100px;"></a></span></center>
+      </div>
+    </nav> 
+     
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <span id="list"></span>
+     
+    </div>
+
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+
+   <br><br>
+   <center>
+   <div id="uploads">
+ 
+      <input type="file" id="imageUpload" class="btn btn-success" accept=".png, .jpg, .jpeg, .JPG">
+      
+   </div>
+   <button id="cambut" onclick="showFun()">OPEN CAMERA</button>
+
+<div style="display:none" id="myDIV">
+  <video id="player" autoplay></video>
+  <button id="capture">CLICK!</button>
+  <canvas style="display: none" id="canvas" width="320" height="240"></canvas>
+  <script>
+    const player = document.getElementById('player');
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const captureButton = document.getElementById('capture');
+  
+    const constraints = {
+      video: true,
+    };
+  
+    captureButton.addEventListener('click', () => {
+     const box = document.getElementById('player');
+     const box1 = document.getElementById('capture');
+      // Draw the video frame to the canvas.
+      context.drawImage(player, 0, 0, canvas.width, canvas.height);
+      var download = function(){
+ var link = document.createElement('a');
+ link.download = 'filename.png';
+ link.href = document.getElementById('canvas').toDataURL()
+ link.click();
+}
+download();
+    });
+  
+    // Attach the video stream to the video element and autoplay.
+    navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+      player.srcObject = stream;
+    });
+  </script>
+</div>
+   
+  </center>
+  <footer class="foot">
+      <center><p>Copyright &copy;2022<br>Developed By <a href="#">20BCS7146, 20BCS7165, 20BCS7130, 20BCS7692</a></p></center>
+  </footer>
+  <script src="fireBase.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
