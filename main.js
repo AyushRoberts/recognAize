@@ -1,5 +1,4 @@
-
-  function showFun() {
+function showFun() {
     var x = document.getElementById("myDIV");
     if (x.style.display === "none") {
       x.style.display = "block";
@@ -13,6 +12,20 @@
       y.textContent = "OPEN CAMERA";
     }
   }
+  function showfield() {
+    var x = document.getElementById("nameup");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+    var y = document.getElementById("nameupbut");
+    if (y.textContent == "edit name") {
+      y.textContent = "cancel";
+    } else {
+      y.textContent = "edit name";
+    }
+  }
 var mainApp = {};
 (function(){
 var mainContainer = document.getElementById("main_container");
@@ -22,8 +35,7 @@ var mainContainer = document.getElementById("main_container");
             console.log('success');
             window.location.replace("login.html");
         },function(){})
-    }
-
+      }
 var init = function(){
     firebase.auth().onAuthStateChanged(function(user) {
       const d = new Date()
@@ -32,9 +44,17 @@ var init = function(){
     var month = months[d.getMonth()]
     let year = d.getYear()-100+2000
         if (user) {
-          document.getElementById("NAME").innerHTML="Signed In as "+user.displayName;
+          document.getElementById("nameup").addEventListener('keypress',function(e){
+            if (e.key === 'Enter') {
+            user.updateProfile({
+              displayName: document.getElementById("nameup").value
+            })
+            location.reload()
+          }
+          })
           if(user.displayName==null)
-          document.getElementById("NAME").innerHTML="Signed In as "+user.email;
+            user.displayName=user.email
+          document.getElementById("NAME").innerHTML="Signed In as "+user.displayName;
           var index=document.getElementById('NAME').textContent.indexOf("as")+3
         var dispname=document.getElementById('NAME').textContent.substring(index)
       firebase.database().ref(dispname+'/'+date+'-'+month+'-'+year).once('value',function(snapshot) {
@@ -62,11 +82,8 @@ var init = function(){
         } else {
           window.location.replace("login.html");
         }
-      });
-      
+      });     
 }
-    
 init();
-
 mainApp.logout = logtout;
 })();

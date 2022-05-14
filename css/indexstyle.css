@@ -1,3 +1,6 @@
+#list{
+  color:white
+}
 .navbar, .logout{
   background-color: #004f27 !important;
 }
@@ -16,8 +19,11 @@
 
 
   }
-  .glyphicon.glyphicon-log-in {
+  .glyphicon.glyphicon-log-in{
     font-size: 25px;
+}
+.glyphicon.glyphicon-user{
+  font-size: 25px;
 }
 a{
     cursor: pointer;
@@ -71,7 +77,7 @@ a{
 
   .sidenav a:hover, .offcanvas a:focus{
       color: white;
-      background-color: #3F51B5;  
+      background-color: #ffffff;  
   }
 
   .sidenav .closebtn {
@@ -87,7 +93,7 @@ a{
   .nav
   {
     border-radius: 0px;
-    background-color: #3F51B5;
+    background-color: #004f27;
     border:none;
   }
 
