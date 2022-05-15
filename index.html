@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script defer src="face-api.min.js"></script>
-  <script defer src="ageandgender.js"></script>
+  <script defer src="js/face-api.min.js"></script>
+  <script defer src="js/ageandgender.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase-auth.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,102 +16,209 @@
   <script src="js/vendor/jquery-1.12.0.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/indexstyle.css">
+  <link rel="stylesheet" href="css/style2.css">
 
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/aos/aos.css" rel="stylesheet">
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="css/style2.css" rel="stylesheet">
+ 
   <title>Age and Gender Detection</title>
 </head>
 <body>
-  <nav class="navbar navbar-inverse nav">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <span class="bh glyphicon glyphicon-time" style="margin-top:auto" onclick="openNav()"></span>
-          <span class="ch"><a style="color: white;" href="index.html">PROJECT&emsp;&emsp;</a></span>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a onclick="openNav()">View History</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span style="color:blue" class="glyphicon glyphicon-user"></span></br><span id="NAME"><a style="color: white; font-size: 100px;"></a></span><div style="margin-top:-15px; margin-left:15px;"><input type='text' style="display: none" placeholder="Enter new name..." id='nameup'/><button id="nameupbut" onclick="showfield()">edit name</button></a></div></li>
-            <li><a class="logout" onclick="mainApp.logout();"><span class="glyphicon glyphicon-log-in" style="color:blue"></span></br>Logout</a></li>
-          </ul>
-        </div>
-        <center></center>
+  <header id="header">
+    <div class="container">
+      <div id="logo" class="pull-left">
+        <h1><a href="#" class="scrollto">recogn<span style="color:red; border: 10px black;">AI</span>ze</a></h1>
       </div>
-    </nav> 
-     
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a style="color:white" onclick="openNav()">View History</a></li>
+          <li><a href="#call-to-action">About</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#"><span style="color:blue" class="glyphicon glyphicon-user"></span></br><span id="NAME"><a style="color: white; font-size: 100px;"></a></span><div style="margin-top:-15px; margin-left:15px;"><input type='text' style="display: none" placeholder="Enter new name..." id='nameup'/><button id="nameupbut" onclick="showfield()">edit name</button></a></div></li>
+          <li><a class="logout" style="background-color: #17a0a4 !important" onclick=mainApp.logout()><span class="glyphicon glyphicon-log-in" style="color:blue"></span></br><span style="color:white">Logout</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <nav style="margin: 0px; background-color: #17a0a4 !important;" class="navbar"></nav> 
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <span id="list"></span>
-     
-    </div>
+    </div> 
+  <section id="intro">
+    <div class="intro-text">
+      <center>
+      <div id="uploads">
+        <input type="file" id="imageUpload" class="btn btn-success" accept=".png, .jpg, .jpeg, .JPG">
+     </div></br>
+     <button id="cambut" onclick="showFun()">OPEN CAMERA</button>
 
+  <div style="display:none" id="myDIV">
+    <video id="player" autoplay></video>
+    <button id="capture">CLICK!</button>
+    <canvas style="display: none" id="canvas" width="320" height="240"></canvas>
     <script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-    }
+      const player = document.getElementById('player');
+      const canvas = document.getElementById('canvas');
+      const context = canvas.getContext('2d');
+      const captureButton = document.getElementById('capture');
+    
+      const constraints = {
+        video: true,
+      };
+    
+      captureButton.addEventListener('click', () => {
+       const box = document.getElementById('player');
+       const box1 = document.getElementById('capture');
+        // Draw the video frame to the canvas.
+        context.drawImage(player, 0, 0, canvas.width, canvas.height);
+        var download = function(){
+   var link = document.createElement('a');
+   link.download = 'filename.png';
+   link.href = document.getElementById('canvas').toDataURL()
+   link.click();
+  }
+  download();
+      });
+    
+      // Attach the video stream to the video element and autoplay.
+      navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+        player.srcObject = stream;
+      });
     </script>
+  </div>
+  <div></br><a href="#call-to-action" class="btn-get-started scrollto">Read More</a></div>
+</center></div>
 
-   <br><br>
-   <center>
-   <div id="uploads">
- 
-      <input type="file" id="imageUpload" class="btn btn-success" accept=".png, .jpg, .jpeg, .JPG">
-      
-   </div>
-   <button id="cambut" onclick="showFun()">OPEN CAMERA</button>
 
-<div style="display:none" id="myDIV">
-  <video id="player" autoplay></video>
-  <button id="capture">CLICK!</button>
-  <canvas style="display: none" id="canvas" width="320" height="240"></canvas>
-  <script>
-    const player = document.getElementById('player');
-    const canvas = document.getElementById('canvas');
-    const context = canvas.getContext('2d');
-    const captureButton = document.getElementById('capture');
-  
-    const constraints = {
-      video: true,
-    };
-  
-    captureButton.addEventListener('click', () => {
-     const box = document.getElementById('player');
-     const box1 = document.getElementById('capture');
-      // Draw the video frame to the canvas.
-      context.drawImage(player, 0, 0, canvas.width, canvas.height);
-      var download = function(){
- var link = document.createElement('a');
- link.download = 'filename.png';
- link.href = document.getElementById('canvas').toDataURL()
- link.click();
-}
-download();
-    });
-  
-    // Attach the video stream to the video element and autoplay.
-    navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
-      player.srcObject = stream;
-    });
-  </script>
-</div>
-   
-  </center>
-  <footer class="foot">
-      <center><p>Copyright &copy;2022<br>Developed By <a href="#">20BCS7146, 20BCS7165, 20BCS7130, 20BCS7692</a></p></center>
+    </section>
+  <main id="main">
+    <section id="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3 class="cta-title">TRY RECOGN<span style="color:red; border: 10px black;">AI</span>ZE</br>A UNIQUE ON-BROWSER GENDER/AGE DETECTOR</h3>
+            <p class="cta-text">Compared to the more common facial recognition libraries that run on Python and utilize a lot of the computer’s resources and graphics memory, RECOGNAIZER'S JS method is more efficient and resource friendly<br>
+              
+              Age and Gender estimation from images are important tasks in intelligent applications</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Try It</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="team" class="section-bg">
+      <div class="container">
+        <div class="section-header">
+          <h3 class="section-title">Our Team</h3>
+          <span class="section-divider"></span>
+          <p class="section-description"></p>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="tejaswi.png" alt=""></div>
+              <h4>TEJASWI SRIVASTAVA</h4>
+              <span>Team Lead</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="ayush.png" alt=""></div>
+              <h4>AYUSH ROBERTS</h4>
+              <span>AI Expert</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="sonal.png" alt=""></div>
+              <h4>SONAL GARG</h4>
+              <span>Web Developer</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="srishti.png" alt=""></div>
+              <h4>SRISHTI</h4>
+              <span>Web Developer</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/aos/aos.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="contactform/contactform.js"></script>
+  <script src="js/mainhome.js"></script>
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>RECOGNAIZER</strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="#intro" class="scrollto">Home</a>
+            <a href="#call-to-action" class="scrollto">About</a>
+            <a href="#">Features</a>
+            <a href="#team">Team</a>
+          </nav>
+        </div>
+      </div>
+    </div>
   </footer>
-  <script src="fireBase.js"></script>
-  <script src="main.js"></script>
+  <script src="js/fireBase.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/mainhome.js"></script>
 </body>
-
 </html>

@@ -1,23 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PROJECT</title>
-    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <meta charset="utf-8">
+  <title>recognAIze</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/aos/aos.css" rel="stylesheet">
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="css/style2.css" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase-auth.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
-    <link rel="stylesheet" href="css/logstyle.css">
 </head>
 <body>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-         Your app may use that space for branding, controls and other customizations.-->
-         <h1 style="text-align: center;">PROJECT</h1>
-         <div id="firebaseui-auth-container"></div>
+  <header id="header">
+    <div class="container">
+      <div id="logo" class="pull-left">
+        <h1><a href="#intro" class="scrollto">recogn<span style="color:red; border: 10px black;">AI</span>ze</a></h1>
+      </div>
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section id="intro">
 
-<script src="fireBase.js"></script>
-<script src="login.js"></script>
+    <div class="intro-text">
+      <h2><span id="textwelcome"></span><span id="blinker">|</span></h2><br><br>
+      <p>Read More Below or Try it Now!</p><br><br>
+      <a href="#start" id="trigger" class="btn-get-started scrollto">Get Started</a>
+      <a href="#about" class="btn-get-started scrollto">Read More</a>
+      <div id="hidden_content"><p>Choose A Method:</p><div id="firebaseui-auth-container"></div</div>
+    </div>
+
+    </section>
+
+  <main id="main">
+    <section id="about" class="section-bg">
+      <div class="container-fluid">
+        <div class="section-header">
+          <h3 class="section-title">About RECOGN<span style="color:red; border: 10px black;">AI</span>ZE</h3>
+          <span class="section-divider"></span>
+          <p class="section-description">
+            recognAIze is built on the foundation of JS with the aim of providing fast and easily accessible AI facial recognition features to users on the go. Built on Tensorflow.js, recognAIzer runs on most modern browsers without requiring the user to downlaod any external library or dependancy
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 about-img" data-aos="fade-right">
+            <img src="AI WORK.png" alt="">
+          </div>
+
+          <div class="col-lg-6 content" data-aos="fade-left">
+            <h3><br><br>Artificial Intelligence is , the simulation of human intelligence in machines that are 
+              programmed to think like humans.</h3>
+            <p>
+              Age and gender are the two most fundamental facial qualities in social interaction.<br>
+              The aim is to predict the age of individuals using image data sets.<br>
+              It is important as - 
+            </p>
+
+            <ul>
+              <li><i class="ion-android-checkmark-circle"></i>Helpful in development of smart human-machine interfaces.</li>
+              <li><i class="ion-android-checkmark-circle"></i>Matching people as friends based on preferences</li>
+              <li><i class="ion-android-checkmark-circle"></i>Simplifying long-distance meetings (coming soon)</li>
+            </ul>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="features">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-8 offset-lg-4">
+            <div class="section-header" data-aos="fade" data-aos-duration="1000">
+              <h3 class="section-title">Recogn<span style="color:red; border: 10px black;">AI</span>ze Features</h3>
+              <span class="section-divider"></span>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-5 features-img"><br><br>
+            <img src="features2.jpg" alt="" data-aos="fade-right" data-aos-easing="ease-out-back">
+          </div>
+
+          <div class="col-lg-8 col-md-7 ">
+
+            <div class="row">
+
+              <div class="col-lg-6 col-md-6 box" data-aos="fade-left">
+                
+                <h4 class="title"><a href="">User Friendly Interface</a></h4>
+                <p>An interface where the user can easily understand
+                   and navigate through the application in an efficient way</p>
+                 </div>
+              <div class="col-lg-6 col-md-6 box" data-aos="fade-left" data-aos-delay="100">
+                
+                <h4 class="title"><a href="">Accuracy In Gender Detection</a></h4>
+                <p>Using Tensorflow AI, we developed an application using AIML algorithms that give us accurate results</p>
+                </div>
+              <div class="col-lg-6 col-md-6 box" data-aos="fade-left" data-aos-delay="200">
+                
+                <h4 class="title"><a href=""><br>Accuracy In Age Detection<br></a></h4>
+                <p>Our light-weight AI salgorithms gives us 90% accurate results</p>
+              </div>
+              <div class="col-lg-6 col-md-6 box" data-aos="fade-left" data-aos-delay="300">
+                
+                <h4 class="title"><a href=""><br>Wide Future Scope<br></a></h4>
+                <p>RecognAIzer can branch out to Social apps, Meeting apps and more (discussed in documentation)</p>
+                </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    <section id="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3 class="cta-title">TRY RECOGN<span style="color:red; border: 10px black;">AI</span>ZE</br>A UNIQUE ON-BROWSER GENDER/AGE DETECTOR</h3>
+            <p class="cta-text">Compared to the more common facial recognition libraries that run on Python and utilize a lot of the computer’s resources and graphics memory, RECOGNAIZER'S JS method is more efficient and resource friendly<br>
+              
+              Age and Gender estimation from images are important tasks in intelligent applications</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Try Now</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="faq">
+      <div class="container">
+
+        <div class="section-header">
+          <h3 class="section-title">Frequently Asked Questions</h3>
+          <span class="section-divider"></span>
+          <p class="section-description">Got more questions? Use the feedback form at the bottom of this page</p>
+        </div>
+
+        <ul id="faq-list" data-aos="fade-up">
+          <li>
+            <a data-toggle="collapse" class="collapsed" href="#faq1">StudentS' UIDs<i class="ion-android-remove"></i></a>
+            <div id="faq1" class="collapse" data-parent="#faq-list">
+              <p>
+                TEJASWI SRIVASTAVA: 20BCS7146</BR>
+                AYUSH ROBERTS: 20BCS7165</BR>
+                SONAL GARG: 20BCS7130</BR>
+                SRISHTI: 20BCS7692</BR>
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq2" class="collapsed">Which technologies were used?<i class="ion-android-remove"></i></a>
+            <div id="faq2" class="collapse" data-parent="#faq-list">
+              <p>
+                HTML5</BR>
+                CSS3</BR>
+                JAVASCRIPT</BR>
+                TENSORFLOW</BR>
+                FIREBASE</BR>
+                HEROKU</BR>
+                BOOTSTRAP</BR>
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <a data-toggle="collapse" href="#faq3" class="collapsed">What are some applications?<i class="ion-android-remove"></i></a>
+            <div id="faq3" class="collapse" data-parent="#faq-list">
+              <p>
+                Be it online health consultance or dating applications, recognAIze has its uses in various fields.</br>Our research results also gave us an insight into the future of recognAIze, for when combined with a meeting app, for example, this project can help a business determine the mood of a remote client in realtime. This would be possible when the Emotion detection feature has been implemented successfully, which is one of the goals in near future for recognAIze.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="team" class="section-bg">
+      <div class="container">
+        <div class="section-header">
+          <h3 class="section-title">Our Team</h3>
+          <span class="section-divider"></span>
+          <p class="section-description"></p>
+        </div>
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="tejaswi.png" alt=""></div>
+              <h4>TEJASWI SRIVASTAVA</h4>
+              <span>Team Lead</span>
+              <span>20BCS7146</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="ayush.png" alt=""></div>
+              <h4>AYUSH ROBERTS</h4>
+              <span>AI/Backend</span>
+              <span>20BCS7165</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="sonal.png" alt=""></div>
+              <h4>SONAL GARG</h4>
+              <span>Frontend</span>
+              <span>20BCS7130</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="srishti.png" alt=""></div>
+              <h4>SRISHTI</h4>
+              <span>Frontend</span>
+              <span>20BCS7692</span>
+              <div class="social">
+                <a href=""><i class="fa fa-twitter"></i></a>
+                <a href=""><i class="fa fa-facebook"></i></a>
+                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href=""><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="contact">
+      <div class="container">
+        <div class="row" data-aos="fade-up">
+
+          <div class="col-lg-4 col-md-4">
+            <div class="contact-about">
+              <h3>recogn<span style="color:red; border: 10px black;">AI</span>ze</h3>
+              <p>FAST | FREE | ACCURATE</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="info">
+              <div>
+                <i class="ion-ios-location-outline"></i>
+                <p>Chandigarh University<br>Gharuan, Mohali</p>
+              </div>
+
+              <div>
+                <i class="ion-ios-email-outline"></i>
+                <p>apgp00740@gmail.com</p>
+              </div>
+
+              <div>
+                <i class="ion-ios-telephone-outline"></i>
+                <p>+917704044471</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-8">
+            <div class="form">
+              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="errormessage"></div>
+              <form action="" method="post" role="form" class="contactForm">
+                <div class="form-row">
+                  <div class="form-group col-lg-6">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <div class="validation"></div>
+                  </div>
+                  <div class="form-group col-lg-6">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <div class="validation"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validation"></div>
+                </div>
+                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>RECOGN<span style="color:red; border: 10px black;">AI</span>ZE</strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="#intro" class="scrollto">Home</a>
+            <a href="#about" class="scrollto">About</a>
+            <a href="#">Features</a>
+            <a href="#">Team</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/aos/aos.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="contactform/contactform.js"></script>
+  <script src="js/mainhome.js"></script>
+  <script src="js/fireBase.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>

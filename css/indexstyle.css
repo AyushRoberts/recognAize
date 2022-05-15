@@ -1,8 +1,27 @@
 #list{
   color:white
 }
+.uploads{
+  background-color: black;
+}
 .navbar, .logout{
-  background-color: #004f27 !important;
+  background-color: #55fabe !important;
+}
+.navbar, .navbar-inverse, .nav{
+  height: 125px;
+}
+input[type=file]::file-selector-button {
+  border: 2px solid #6c5ce7;
+  padding: .2em .4em;
+  color: white;
+  border-radius: .2em;
+  background-color: #000000;
+  transition: 1s;
+}
+input[type=file]::file-selector-button:hover {
+  background-color: #ffffff;
+  color: black;
+  border: 2px solid #00cec9;
 }
 .ruet
   {
@@ -36,14 +55,12 @@ a{
     
     
   }
-
   a:link
   {
     color:#ffffff;
     text-decoration:none;
     
   } 
-
   .ruet:active
   {
       border-bottom-width:1px;
@@ -79,13 +96,16 @@ a{
       color: white;
       background-color: #ffffff;  
   }
-
+#list{
+  position: absolute;
+      top: 250px;
+      left: 30px;
+}
   .sidenav .closebtn {
       position: absolute;
-      top: 0;
-      right: 20px;
+      top: 230px;
+      left: -30px;
       font-size: 30px;
-      margin-left: 50px;
   }
 
 
