@@ -4,9 +4,7 @@
 .uploads{
   background-color: black;
 }
-.navbar, .logout{
-  background-color: #55fabe !important;
-}
+
 .navbar, .navbar-inverse, .nav{
   height: 125px;
 }
@@ -99,7 +97,7 @@ a{
 #list{
   position: absolute;
       top: 250px;
-      left: 30px;
+      left: 10px;
 }
   .sidenav .closebtn {
       position: absolute;
