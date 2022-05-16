@@ -1,4 +1,4 @@
-const words = ["Gender and Age Detection...","Performed Directly on Your Browser...","Free | Fast | Precise","No external dependencies required..."];
+const words = ["Gender and Age Detection...","Performed Directly on Your Browser...","FAST | FREE | ACCURATE","No external dependencies required..."];
 let i = 0;
 let counter;
 function typeNow() {
