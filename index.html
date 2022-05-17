@@ -27,7 +27,7 @@
   <link href="lib/aos/aos.css" rel="stylesheet">
   <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
   <link href="lib/css/style2.css" rel="stylesheet">
- 
+  <script src="lib/js/main.js"></script>
   <title>Age and Gender Detection</title>
 </head>
 <body>
@@ -42,8 +42,15 @@
           <li><a style="color:white" onclick="openNav()">View History</a></li>
           <li><a href="#call-to-action">About</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="#"><span style="color:blue" class="glyphicon glyphicon-user"></span></br><span id="NAME"><a style="color: white; font-size: 100px;"></a></span><div style="margin-top:-15px; margin-left:15px;"><input type='text' style="display: none" placeholder="Enter new name..." id='nameup'/><button id="nameupbut" onclick="showfield()">edit name</button></a></div></li>
-          <li><a class="logout" onclick=mainApp.logout()><span class="glyphicon glyphicon-log-in" style="color:blue"></span></br><span style="color:white">Logout</span></a></li>
+          <li><a href="#"><span style="color:red; -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;" class="glyphicon glyphicon-user"></span></br><span id="NAME"><a style="color: white; font-size: 100px;"></a></span><div style="margin-top:-15px; margin-left:px;"><label for="inp" class="inp">
+  <input type="text" style="display: none;" placeholder="Enter a username..." id='nameup'>
+  <span class="label"></span>
+  <span class="focus-bg"></span>
+</label><a style="color:red; -webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;" id="nameupbut" onclick="showfield()">edit name</a></a></div></li>
+          <li><a class="logout" onclick=mainApp.logout()><span class="glyphicon glyphicon-log-in" style="color:red; -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;"></span></br><span style="color:white">Logout</span></a></li>
         </ul>
       </nav>
     </div>
@@ -62,7 +69,7 @@
       <div id="uploads">
         <input type="file" id="imageUpload" class="btn btn-success" accept=".png, .jpg, .jpeg, .JPG">
      </div><p style="font-size: 20px;">OR</p>
-     <button id="cambut" onclick="showFun()">OPEN CAMERA</button>
+     <a class="btn-get-started" id="cambut" onclick="showFun()">OPEN CAMERA</a>
 
   <div style="display:none" id="myDIV">
     <p style="font-size: 20px;">Note: recognAIze does not store your image data after processing</p>
@@ -137,8 +144,8 @@
               <div class="social">
                 <a href=""><i class="fa fa-twitter"></i></a>
                 <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/tejaswi_srivastava_07/"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/tejaswi-srivastava-802abb230/"><i class="fa fa-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -149,10 +156,10 @@
               <h4>AYUSH ROBERTS</h4>
               <span>AI/backend/Bundling</span>
               <div class="social">
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
+                <a href="https://twitter.com/ayushroberts"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/AyushRoberts"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/ayushroberts/"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/ayushroberts/?originalSubdomain=in"><i class="fa fa-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -165,8 +172,8 @@
               <div class="social">
                 <a href=""><i class="fa fa-twitter"></i></a>
                 <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/sonal.garg.79656/"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/sonal-garg-2188631bb"><i class="fa fa-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -179,11 +186,50 @@
               <div class="social">
                 <a href=""><i class="fa fa-twitter"></i></a>
                 <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-google-plus"></i></a>
+                <a href="https://www.instagram.com/srishti_0002/"><i class="fa fa-instagram"></i></a>
                 <a href=""><i class="fa fa-linkedin"></i></a>
               </div>
             </div>
           </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-4">
+            <div class="contact-about">
+              <h3>recogn<span style="color:red; border: 10px black;">AI</span>ze</h3>
+              <p>FAST | FREE | ACCURATE</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="info">
+              <div>
+                <i class="ion-ios-location-outline"></i>
+                <p>Chandigarh University<br>Gharuan, Mohali</p>
+              </div>
+
+              <div>
+                <i class="ion-ios-email-outline"></i>
+                <p>apgp00740@gmail.com</p>
+              </div>
+
+              <div>
+                <i class="ion-ios-telephone-outline"></i>
+                <p>+917704044471</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-8">
+            Links to documentation: (TO BE ADDED)
+          </div>
+
         </div>
 
       </div>
@@ -193,12 +239,8 @@
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
   <script src="lib/aos/aos.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
   <script src="lib/magnific-popup/magnific-popup.min.js"></script>
-  <script src="contactform/contactform.js"></script>
   <script src="lib/js/mainhome.js"></script>
   <footer id="footer">
     <div class="container">
@@ -214,7 +256,7 @@
           <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
             <a href="#intro" class="scrollto">Home</a>
             <a href="#call-to-action" class="scrollto">About</a>
-            <a href="#">Features</a>
+            <a href="mailto:apgp00740@gmail.com">Feedback</a>
             <a href="#team">Team</a>
           </nav>
         </div>
